@@ -12,7 +12,6 @@ char *create_array(unsigned int size, char c)
 	unsigned int k;
 	char *ctx;
 
-
 	if (size == 0)
 	return (NULL);
 
