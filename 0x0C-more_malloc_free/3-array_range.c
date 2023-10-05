@@ -11,24 +11,24 @@
  */
 int *array_range(int min, int max)
 {
-    int *arr;
-    int k, size;
+	int *arr;
+	int k, size;
 
-    if (min > max)
-        return (NULL);
+	if (min > max)
+		return (NULL);
 
-    size = (max - min) + 1;
-    arr = malloc(sizeof(*arr) * size);
+	size = (max - min) + 1;
+	arr = malloc(sizeof(*arr) * size);
 
-    if (arr == NULL)
-        return (NULL);
+	if (arr == NULL)
+		return (NULL);
 
-    for (k = 0; k < size; k++)
-    {
-        arr[k] = min;
-        min++;
-    }
+	for (k = 0; k < size; k++)
+	{
+		arr[k] = min;
+		min++;
+	}
 
-    return (arr);
+	return (arr);
 	/*devmike*/
 }
