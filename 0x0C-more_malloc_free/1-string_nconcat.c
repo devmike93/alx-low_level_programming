@@ -10,11 +10,10 @@
  * Return: pointer to the allocated memory.
  * if malloc fails, status value is equal to 98.
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *catstr;
-	unsigned int lstr1, lstr2, lcatstr, a;
+	char *strout;
+	unsigned int lstr1, lstr2, lsout, k;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -28,23 +27,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (lstr2 = 0; s2[lstr2] != '\0'; lstr2++)
 		;
 
-	lcatstr = lstr1 + n;
+	if (n > lstr2)
+		n = lstr2;
 
-	catstr = malloc(lcatstr + 1);
+	lsout = lstr1 + n;
 
-	if (catstr == NULL)
+	strout = malloc(lsout + 1);
+
+	if (strout == NULL)
 		return (NULL);
 
-	for (a = 0; a < lcatstr; a++)
-	{
-		if (a < lstr1)
-			catstr[a] = s1[a];
-		else if (a < lstr1 + n)
-			catstr[a] = s2[a - lstr1];
+	for (k = 0; k < lsout; k++)
+		if (k < lstr1)
+			strout[k] = s1[k];
 		else
-			catstr[a] = '\0';
-	}
+			strout[k] = s2[k - lstr1];
 
-	return (catstr);
-	/*devmike*/
+	strout[k] = '\0';
+
+	return (strout);
 }
