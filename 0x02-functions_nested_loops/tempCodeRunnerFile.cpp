@@ -1,0 +1,1 @@
+    for (const string& word : msg)
