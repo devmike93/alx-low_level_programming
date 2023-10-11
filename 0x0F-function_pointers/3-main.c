@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int a, b, k;
 	int (*operation)(int, int);
 
 	if (argc != 4)
@@ -28,13 +28,12 @@ int main(int argc, char *argv[])
 	}
 
 	operation = get_op_func(argv[2]);
-
 	if (operation == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-
-	printf("%d\n", operation(a, b));
+	k = operation(a, b);
+	printf("%d\n", k);
 	return (0);
 }
